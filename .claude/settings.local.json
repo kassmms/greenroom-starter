@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sqlite3 data/greenroom.db \"SELECT deal_type, COUNT\\(*\\) as count, ROUND\\(COUNT\\(*\\)*100.0/\\(SELECT COUNT\\(*\\) FROM deals\\),1\\) as pct FROM deals GROUP BY deal_type ORDER BY count DESC;\")",
+      "Bash(sqlite3 data/greenroom.db \"SELECT COUNT\\(*\\) as total_shows FROM shows;\")",
+      "Bash(sqlite3 data/greenroom.db \"SELECT deal_type, COUNT\\(*\\) as count FROM deals WHERE deal_type IN \\('flat','percentage_of_gross'\\) GROUP BY deal_type;\")",
+      "Bash(sqlite3 data/greenroom.db \"SELECT COUNT\\(*\\) FROM ticket_sales;\")",
+      "Bash(sqlite3 data/greenroom.db \"PRAGMA table_info\\(ticket_sales\\);\")",
+      "Bash(sqlite3 data/greenroom.db \"SELECT qty, gross, fees FROM ticket_sales LIMIT 10;\")",
+      "Bash(sqlite3 data/greenroom.db ' *)",
+      "Bash(npm run *)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)"
+    ]
+  }
+}

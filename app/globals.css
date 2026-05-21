@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-fraunces);
+
+  --color-canvas: #faf7f0;
+  --color-canvas-soft: #fdfbf6;
+
+  --color-brand-50: #ecfdf5;
+  --color-brand-100: #d1fae5;
+  --color-brand-200: #a7f3d0;
+  --color-brand-300: #6ee7b7;
+  --color-brand-500: #10b981;
+  --color-brand-600: #059669;
+  --color-brand-700: #047857;
+  --color-brand-800: #065f46;
+  --color-brand-900: #064e3b;
+
+  --color-ink-50: #faf8f4;
+  --color-ink-100: #f3f0e9;
+  --color-ink-200: #e4dfd2;
+  --color-ink-300: #c9c2b1;
+  --color-ink-400: #94907f;
+  --color-ink-500: #6b6759;
+  --color-ink-600: #4f4c41;
+  --color-ink-700: #3a3830;
+  --color-ink-800: #26241e;
+  --color-ink-900: #1a1814;
+
+  --color-amber-50: #fef7e6;
+  --color-amber-100: #fef0c7;
+  --color-amber-200: #fde68a;
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+
+  --color-rose-50: #fef2f2;
+  --color-rose-100: #ffe4e6;
+  --color-rose-200: #fecaca;
+  --color-rose-700: #be123c;
+  --color-rose-800: #9f1239;
+
+  --color-sky-50: #eff6ff;
+  --color-sky-100: #dbeafe;
+  --color-sky-200: #bfdbfe;
+  --color-sky-700: #1d4ed8;
+  --color-sky-800: #1e40af;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink-900);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "cv11", "ss01", "ss03";
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      ellipse 60% 40% at 50% 0%,
+      rgba(16, 185, 129, 0.05),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 30% at 100% 100%,
+      rgba(245, 158, 11, 0.03),
+      transparent 60%
+    );
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+.bg-gradient-brand {
+  background: linear-gradient(
+    135deg,
+    var(--color-brand-700) 0%,
+    var(--color-brand-800) 100%
+  );
+}
+
+.bg-gradient-paper {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    var(--color-canvas-soft) 100%
+  );
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.97) translateY(-4px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-brand-700);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-brand-700);
+  outline-offset: 0;
+}
+
+.font-display {
+  font-family: var(--font-fraunces), Georgia, serif;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-brand-700);
+}
